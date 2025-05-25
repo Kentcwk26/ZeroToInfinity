@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload with Previews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .file-upload-container {
+            border: 2px dashed #999;
+            padding: 20px;
+            cursor: pointer;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .file-upload-container:hover {
+            background-color: #f0f0f0;
+        }
+        .file-list {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #fafafa;
+            border-radius: 5px;
+            justify-content: center;
+            width: 100%;
+            cursor: pointer;
+        }
+        .file-icon {
+            font-size: 24px;
+        }
+        .preview-image {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        #file-input {
+            display: none; /* Hide the input file element */
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h2>File Upload</h2>
+<div id="file-upload" class="file-upload-container">
+    <p>Drag & drop files here or click to select files</p>
+    <div id="file-list" class="file-list"></div>
+</div>
+<input type="file" id="file-input" multiple>
+
+<script>
+    const fileUploadContainer = document.getElementById('file-upload');
+    const fileInput = document.getElementById('file-input');
+    const fileList = document.getElementById('file-list');
+
+    const allowedFileTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
+
+    function getFileIcon(fileName) {
+        const ext = fileName.split('.').pop().toLowerCase();
+        switch (ext) {
+            case 'pdf':
+                return '<i class="fas fa-file-pdf file-icon"></i>';
+            case 'doc':
+            case 'docx':
+                return '<i class="fas fa-file-word file-icon"></i>';
+            case 'ppt':
+            case 'pptx':
+                return '<i class="fas fa-file-powerpoint file-icon"></i>';
+            case 'xls':
+            case 'xlsx':
+                return '<i class="fas fa-file-excel file-icon"></i>';
+            default:
+                return '';
+        }
+    }
+
+    function displayFiles(files) {
+        fileList.innerHTML = '';
+        Array.from(files).forEach(file => {
+            if (!allowedFileTypes.includes(file.type)) {
+                alert(`File type not allowed: Please upload the file in image or PDF files <br>${file.name}`);
+                return; // Skip invalid files
+            }
+
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item';
+            fileItem.innerHTML = getFileIcon(file.name) + `<span class="file-name">${file.name}</span>`;
+            
+            // Create a link for the file to open in a new tab
+            const fileURL = URL.createObjectURL(file);
+            fileItem.onclick = () => {
+                window.open(fileURL, '_blank'); // Open file in a new tab
+            };
+
+            // If the file is an image, create an img element for preview
+            if (file.type.startsWith('image/')) {
+                const img = document.createElement('img');
+                img.className = 'preview-image';
+                img.src = fileURL; // Set image source
+                fileItem.prepend(img); // Add image before the filename
+            }
+
+            fileList.appendChild(fileItem);
+        });
+    }
+
+    fileUploadContainer.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        displayFiles(e.target.files);
+    });
+
+    fileUploadContainer.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
+
+    fileUploadContainer.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const files = e.dataTransfer.files;
+        displayFiles(files);
+    });
+</script>
+
+</body>
+</html>

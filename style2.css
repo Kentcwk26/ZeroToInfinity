@@ -1,0 +1,248 @@
+input[type="text"], input[type="email"], input[type="password"], input[type="datetime-local"], select {
+    padding: 15px;
+    margin: 5px 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100% !important;
+}
+
+input[type=submit], input[type=button], input[type=reset] {
+    width: 10%;
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="datetime-local"]:hover, select:hover, textarea:hover {
+    background-color: #f0f0f0;
+}
+
+input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
+    background-color: black;
+    color: white;
+}
+
+input[type=file]{
+    width: 100%;
+    cursor: pointer;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.line-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-heading h2 {
+    margin: 0 15px;
+    padding: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.line-heading::before, .line-heading::after {
+    content: '';
+    flex-grow: 1;
+    border-bottom: 1px solid black;
+    height: 1px;
+}
+
+.formoption {
+    padding-top: 40px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 10px;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.prev:hover, .next:hover, .prev:visited, .next:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.slideshow-indicators {
+    text-align: center;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.payment, .payment h2, .payment p {
+    width: 80%;
+    font-size: 20px;
+    padding: 20px 0px;
+    text-align: left;
+}
+
+form {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    vertical-align: top;
+    width: 33%;
+}
+
+td label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.formoption {
+    text-align: center;
+    padding-top: 40px;
+}
+
+@media screen and (max-width: 800px) {
+    table {
+        width: 100%;
+    }
+
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+.file-upload-container {
+    border: 2px dashed #999;
+    padding: 20px;
+    cursor: pointer;
+    margin: 20px auto;
+    width: 96%;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.file-upload-container:hover {
+    background-color: #f0f0f0;
+}
+
+.file-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.file-icon {
+    font-size: 24px;
+}
+
+.preview-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#file-input {
+    display: none;
+}
+
+#event-description, #additional-services {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100% !important;
+    height: 100px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.activities {
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.hidden-activities {
+    display: none;
+}
+
+.view-more-row {
+    border: none; 
+    padding: 10px;
+}
+
+.view-more-link img {
+    vertical-align: middle;
+}
