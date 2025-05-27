@@ -6,6 +6,45 @@
     <link rel="icon" href="pictures\370525461_296371052986328_118715476372334869_n(2).jpg" type="image/x-icon">
     <title>About Us</title>
     <link rel="stylesheet" href="style1.css">
+    <script>
+        let currentFlippedCard = null;
+        let flipTimeout = null;
+
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', (event) => {
+            event.stopPropagation();
+
+            if (card.classList.contains('flipped')) {
+                card.classList.remove('flipped');
+                currentFlippedCard = null;
+                clearTimeout(flipTimeout);
+            } else {
+                if (currentFlippedCard) {
+                currentFlippedCard.classList.remove('flipped');
+                clearTimeout(flipTimeout);
+                }
+
+                card.classList.add('flipped');
+                currentFlippedCard = card;
+
+                flipTimeout = setTimeout(() => {
+                card.classList.remove('flipped');
+                currentFlippedCard = null;
+                }, 5000);
+            }
+            });
+        });
+
+        document.addEventListener('click', () => {
+            if (currentFlippedCard) {
+            currentFlippedCard.classList.remove('flipped');
+            currentFlippedCard = null;
+            clearTimeout(flipTimeout);
+            }
+        });
+    </script>
+
+
 </head>
 <body>
     <header>
@@ -39,6 +78,165 @@
             <div class="bubble" style="background-image: url('pictures/photo_2025-05-26_12-44-25.jpg'); left: 30%;"></div>
         </div>
 
+        <div class="team">
+            <h2>Meet Our Team</h2>
+
+            <div class="team-row top-row">
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 1">
+                                <h3>Member 1</h3>
+                                <p>Role: Founder & Leader</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "Vision without action is daydreaming. I choose to lead with intent"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 2">
+                                <h3>Member 2</h3>
+                                <p>Role: Manager</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "Great outcomes come from great orchestration"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 3">
+                                <h3>Member 3</h3>
+                                <p>Role: Software Developer & Content Creator</p>  
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: ENTJ</p>
+                                <p>Favorite Quote: "I code the future and craft stories that move people"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 4">
+                                <h3>Member 4</h3>
+                                <p>Role: Content Creator</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "My words build bridges; my vision sparks ideas"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 5">
+                                <h3>Member 5</h3>
+                                <p>Role: Videographer</p>    
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "Every frame I shoot is a frame of purpose"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="team-row">
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 6">
+                                <h3>Member 6</h3>
+                                <p>Role: Dancer</p>    
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "Dance is the hidden language of the soul"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 7">
+                                <h3>Member 7</h3>
+                                <p>Role: Dancer</p>    
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "Dance is the joy of movement and the heart of life"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 8">
+                                <h3>Member 8</h3>
+                                <p>Role: Dancer</p>    
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "When you dance to your own rhythm, life taps its toes to your beat"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 9">
+                                <h3>Member 9</h3>
+                                <p>Role: Dancer</p>    
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "Great dancers are not great because of their technique, they are great because of their passion"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="pictures/user.png" alt="Member 10">
+                                <h3>Member 10</h3>
+                                <p>Role: Dancer</p>    
+                            </div>
+                            <div class="flip-card-back">
+                                <p>MBTI: </p>
+                                <p>Favorite Quote: "To watch us dance is to hear our hearts speak"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- <div class="c3">
             <img src="pictures\Screenshot 2024-10-11 170627.png" alt="Dance Classes">
             <p style="text-align: justify;">There's no better time to dive into the world of dance! <br><br>At MOMENT, we believe that dance is about more than just learning moves — it’s about finding joy in every step and expressing yourself in new and exciting ways. Whether you’re a complete beginner or an experienced dancer, we offer a wide variety of classes to suit all skill levels and interests. Our passionate instructors are here to guide you, helping you build confidence, creativity, and technique. Dance is a powerful way to stay active, relieve stress, and connect with others who share your love for movement. Join our vibrant dance community today and start living—and dancing—in the moment. Your journey begins here!</p>
@@ -50,7 +248,7 @@
         </div> -->
 
         <!-- <h3>Step into the rhythm with us ! <br>Join and feel the vibe, and stay tuned for more exciting moves and unforgettable experiences. Let's dance together and make every moment count!<br><br><br> -->
-        <h3><br>Have feedback to us?<br>“No worries, we've got you covered!"</h3>
+        <h3>Have feedback to us?<br>“No worries, we've got you covered!"</h3>
         <form action="aboutus.html" method="post">
             <table class="centered-table">
                 <tr>

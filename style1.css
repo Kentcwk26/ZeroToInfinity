@@ -501,7 +501,7 @@ body.modal-open {
     display: block;
 }
 
-  .file-upload-container {
+.file-upload-container {
     border: 2px dashed #ccc;
     border-radius: 6px;
     padding: 20px;
@@ -510,31 +510,135 @@ body.modal-open {
     margin: 20px auto;
     width: 80%;
     max-width: 600px;
-  }
+}
 
-  .file-list {
+.file-list {
     margin-top: 20px;
-  }
+}
 
-  .file-item {
+.file-item {
     margin-bottom: 15px;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 6px;
     background-color: #f9f9f9;
-  }
+}
 
-  .preview-video {
+.preview-video {
     display: block;
     margin-bottom: 5px;
-  }
+}
 
-  .file-name {
+.file-name {
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
+}
+
+.file-name:hover {
+    text-decoration: underline;
+}
+
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 0 15px; /* for small screen padding */
+}
+
+.team-member {
+  flex: 1 1 220px;
+  max-width: 250px;
+  height: 320px;
+}
+
+.flip-card {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.flip-card.flipped, .flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+  margin-bottom: 12px;
+}
+
+.flip-card-front h3,
+.flip-card-back h3 {
+  margin: 10px 0 5px;
+  color: #007bff;
+}
+
+.flip-card-front p,
+.flip-card-back p {
+  color: #555;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .team-member {
+    flex: 1 1 45%;
+    max-width: 100%;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .team-member {
+    flex: 1 1 100%;
+    height: 300px;
   }
 
-  .file-name:hover {
-    text-decoration: underline;
+  .flip-card-front img {
+    width: 80px;
+    height: 80px;
   }
+
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 0.85rem;
+  }
+}
