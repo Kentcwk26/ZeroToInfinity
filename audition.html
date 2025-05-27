@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pictures\logo.jpg" type="image/x-icon">
+    <title>∞²</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" style="margin-left: 10px"><img src="pictures/logo.jpg" alt="LOGO" style="border-radius: 50%;" ></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <!-- <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Blog / News</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <div class="line-heading"><h2 id="aboutus">Audition</h2></div>
+        
+        <div class="slideshow-container">
+            <div class="slide slide-fade">
+                <video controls autoplay muted onended="changeMainSlide(1)">
+                    <source src="videos/Snapinsta.app_video_944C1A54B89F302F0A683213B9F94C9F_video_dashinit.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="slide slide-fade">
+                <img src="pictures/401468248_3691367044458816_4559431422616440692_n.jpg" alt="Slide 2">
+            </div>
+            <div class="slide slide-fade">
+                <video controls autoplay muted onended="changeMainSlide(1)">
+                    <source src="videos/WhatsApp Video 2025-05-26 at 10.42.42_5670c5a4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <a class="prev" onclick="changeMainSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeMainSlide(1)">&#10095;</a>
+        </div>
+
+        <p>
+            Wanna be a part of us? <br> Please throw your audition video to us! We will review your video and get back to you as soon as possible.
+        </p>
+        
+        <form action="aboutus.html" method="post">
+            <table class="centered-table">
+                <tr>
+                    <td>
+                        <label for="audition-name" style="text-align: left;">Name</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="text" id="audition-name" name="audition-name" placeholder="Please insert your name in this box here ...." style="padding: 10px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="audition-email" style="text-align: left;">Email</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="email" id="audition-email" name="audition-email" placeholder="Please insert your email in this box here .... " style="padding: 10px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="audition-contact" style="text-align: left;">Contact Number</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="text" id="audition-contact" name="audition-contact" placeholder="Please insert your contact number in this box here .... " style="padding: 10px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="audition-age" style="text-align: left;">Age</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="number" id="audition-experience" name="audition-experience" placeholder="Please insert your dance experience in this box here .... " style="padding: 10px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="audition-video" style="text-align: left;">Audition Video</label>
+                    </td>
+                    <td colspan="2">
+                        <div id="file-upload" class="file-upload-container">
+                            <p>Drag & drop video files here or click to select files</p>
+                            <div id="file-list" class="file-list"></div>
+                        </div>
+                        <input type="file" id="file-input" name="file-input" style="display: none;" multiple accept="video/mp4, video/webm, video/ogg" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="audition-experience" style="text-align: left;">Do you have transportation?</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="radio" id="audition-transportation" name="audition-transportation" value="yes">
+                        <label for="audition-transportation">Yes</label>
+                        <input type="radio" id="audition-transportation-no" name="audition-transportation" value="no">
+                        <label for="audition-transportation-no">No</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="audition-ideas" style="text-align: left;">Why do you wanna be a part of us?</label>
+                    </td>
+                    <td colspan="2">
+                        <textarea id="audition-ideas" name="audition-ideas" placeholder="Please include your reason here in this box ...." style="padding: 10px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit"><input type="reset" value="Cancel">
+        </form>
+
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="https://wa.me/60199830889" target="_blank"><img src="pictures/pngimg.com - whatsapp_PNG95167.png" alt="WhatsApp"></a></li>
+                <li><a href="https://www.instagram.com/zerotinfinity" target="_blank"><img src="pictures/pngimg.com - instagram_PNG9.png" alt="Instagram"></a></li>
+                <li><a href="#" target="_blank"><img src="pictures/pngimg.com - tiktok_PNG26.png" alt="Tik Tok"></a></li>
+                <li><a href="#" target="_blank"><img src="pictures/pngimg.com - youtube_PNG102352.png" alt="YouTube"></a></li>
+            </ul>
+        </nav>
+        <h3>© 2025 ZeroToInfinity. All rights reserved</h3>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+    <script src="script4.js"></script>
+
+</body>
+</html>

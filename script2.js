@@ -1,39 +1,86 @@
-let studioImageIndex = 0;
+const fileUploadContainer = document.getElementById('file-upload');
+  const fileInput = document.getElementById('file-input');
+  const fileList = document.getElementById('file-list');
 
-const studioImages = {
-    'studioA': ['pictures/399142435_324786113501031_5278360225113880949_n.jpg','pictures/Screenshot 2024-10-11 023626.png','pictures/Screenshot 2024-10-11 023705.png','pictures/Screenshot 2024-10-11 023739.png'],
-    'studioB': ['pictures/398179639_736384281866394_6463279714230769553_n.jpg','pictures/Screenshot 2024-10-11 023804.png','pictures/Screenshot 2024-10-11 023917.png']
-};
+  const allowedFileTypes = ['image/jpeg', 'image/png', 'image/gif', 'video/mp4', 'video/webm', 'video/ogg'];
 
-let currentStudio = '';
-
-function openModal(studio) {
-  currentStudio = studio;
-  studioImageIndex = 0;
-  document.getElementById("modalImage").src = studioImages[currentStudio][studioImageIndex];
-  document.getElementById("myModal").style.display = "flex";
-  document.body.classList.add("modal-open");
-}
-
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-  document.body.classList.remove("modal-open");
-}
-
-function changeModalSlide(n) {
-  studioImageIndex += n;
-  if (studioImageIndex >= studioImages[currentStudio].length) {
-    studioImageIndex = 0;
+  function getFileIcon(fileName) {
+    const ext = fileName.split('.').pop().toLowerCase();
+    switch (ext) {
+      case 'mp4':
+      case 'webm':
+      case 'ogg':
+        return '🎥';
+      case 'jpg':
+      case 'jpeg':
+      case 'png':
+      case 'gif':
+        return '🖼️';
+      default:
+        return '';
+    }
   }
-  if (studioImageIndex < 0) {
-    studioImageIndex = studioImages[currentStudio].length - 1;
-  }
-  document.getElementById("modalImage").src = studioImages[currentStudio][studioImageIndex];
-}
 
-window.onclick = function(event) {
-  const modal = document.getElementById("myModal");
-  if (event.target == modal) {
-    closeModal();
+  function displayFiles(files) {
+    fileList.innerHTML = '';
+    Array.from(files).forEach(file => {
+      if (!allowedFileTypes.includes(file.type)) {
+        alert(`File type not allowed: ${file.name}`);
+        return; // Skip invalid files
+      }
+
+      const fileURL = URL.createObjectURL(file);
+
+      const fileItem = document.createElement('div');
+      fileItem.className = 'file-item';
+
+      // Determine if it’s an image or video
+      if (file.type.startsWith('image/')) {
+        const img = document.createElement('img');
+        img.className = 'preview-media';
+        img.src = fileURL;
+        fileItem.appendChild(img);
+      } else if (file.type.startsWith('video/')) {
+        const video = document.createElement('video');
+        video.className = 'preview-media';
+        video.src = fileURL;
+        video.controls = true;
+        video.width = 300;
+        fileItem.appendChild(video);
+      }
+
+      // File name link
+      const fileLink = document.createElement('a');
+      fileLink.href = fileURL;
+      fileLink.target = '_blank';
+      fileLink.textContent = file.name;
+      fileLink.className = 'file-name';
+
+      const fileIcon = getFileIcon(file.name);
+      fileItem.appendChild(document.createTextNode(fileIcon + ' '));
+      fileItem.appendChild(fileLink);
+
+      fileList.appendChild(fileItem);
+    });
   }
-};
+
+  // Click to select files
+  fileUploadContainer.addEventListener('click', () => {
+    fileInput.click();
+  });
+
+  // Handle selected files
+  fileInput.addEventListener('change', (e) => {
+    displayFiles(e.target.files);
+  });
+
+  // Drag & drop events
+  fileUploadContainer.addEventListener('dragover', (e) => {
+    e.preventDefault();
+  });
+
+  fileUploadContainer.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const files = e.dataTransfer.files;
+    displayFiles(files);
+  });

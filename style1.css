@@ -190,22 +190,24 @@ footer h3 {
     height: 100px;
 } 
 
-.buttons {
+.buttons{
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 20px;
 }
 
-.buttons a {
+.buttons a, input[type="submit"], input[type="button"], input[type="reset"]{
     padding: 20px 40px;
     background-color: black;
     color: white;
     text-decoration: none;
     border-radius: 50px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
-.buttons a:hover {
+.buttons a:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover{
     background-color: white;
     color: black;
     border: 1px solid black;
@@ -244,20 +246,47 @@ footer h3 {
     gap: 80px;
 }
 
-.studio {
-    background-color: white;
-    padding: 20px;
-    width: 600px;
-    text-align: center;
+.centered-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 60%;
 }
 
-.studio-image-container {
+.centered-table td, .centered-table th {
+  padding: 10px;
+}
+
+.centered-table label {
+  font-weight: bold;
+}
+
+.centered-table textarea, 
+.centered-table input[type="text"], 
+.centered-table input[type="email"], 
+.centered-table input[type="tel"], 
+.centered-table input[type="number"] {
+  width: 90%;
+  height: 50px;
+  resize: none;
+}
+
+.bubble-container {
     position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background-color: #000;
+    margin-top: 40px;
 }
 
-.studio img {
-    width: 100%;
-    height: auto;
+.bubble {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-size: cover;
+    background-position: center;
 }
 
 .overlay {
@@ -344,35 +373,35 @@ body.modal-open {
     text-decoration: none;
 }
 
-.events-container {
+.blog-container {
     display: flex;
     justify-content: space-around;
     padding: 20px;
     flex-wrap: wrap;
 }
 
-.event {
+.blog {
     text-align: center;
-    width: 300px;
+    width: 400px;
     margin: 20px;
 }
 
-.event img {
+.blog img, .blog video {
     width: 100%;
     height: auto;
 }
 
-.event h3 {
+.blog h3 {
     font-size: 18px;
     margin-top: 10px;
 }
 
-.event p {
+.blog p {
     font-size: 14px;
     color: #666;
 }
 
-.event a:hover, .event a:visited {
+.blog a:hover, .blog a:visited {
     text-decoration: none;
     color: black;
 }
@@ -471,3 +500,41 @@ body.modal-open {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+  .file-upload-container {
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+  }
+
+  .file-list {
+    margin-top: 20px;
+  }
+
+  .file-item {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+
+  .preview-video {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .file-name {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .file-name:hover {
+    text-decoration: underline;
+  }

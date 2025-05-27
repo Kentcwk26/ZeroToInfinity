@@ -14,12 +14,11 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
-                <!-- <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Blog / News</a></li> -->
+                <!-- <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="blog.html">Blog / News</a></li> -->
             </ul>
         </nav>
     </header>
-
     <main>
         <h1 class="Typedtext">Welcome to ZeroToInfinity ∞²</h1>
         
@@ -33,6 +32,12 @@
             <div class="slide slide-fade">
                 <img src="pictures/401468248_3691367044458816_4559431422616440692_n.jpg" alt="Slide 2">
             </div>
+            <div class="slide slide-fade">
+                <video controls autoplay muted onended="changeMainSlide(1)">
+                    <source src="videos/WhatsApp Video 2025-05-26 at 10.42.42_5670c5a4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <a class="prev" onclick="changeMainSlide(-1)">&#10094;</a>
             <a class="next" onclick="changeMainSlide(1)">&#10095;</a>
         </div>
@@ -41,17 +46,66 @@
             Established on 2025, the two 0s in the name represents us starting from nothing; <br> and simultaneously meaning infinity without the connecting loop. The square root represents that we can be bigger and better.
         </p>
 
+        <div class="buttons">
+            <a href="blog.html">Check out our latest Blog / News here</a>
+        </div>
+
         <div class="line-heading"><h2 id="performances" style="padding: 60px;">Stay Tuned</h2></div>
+
+        <p>If you have any enquiries, feel free to contact us<p>
+
+        <form action="index.html" method="post">
+            <table class="centered-table">
+                <tr>
+                    <td>
+                        <label for="contact" style="text-align: left;">Name</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="text" id="contact" name="contact" placeholder="Please insert your name in this box here ...." style="padding: 10px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="contact-email" style="text-align: left;">Email</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="email" id="contact-email" name="contact-email" placeholder="Please insert your email in this box here .... " style="padding: 10px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="contact-number" style="text-align: left;">Contact Number</label>
+                    </td>
+                    <td colspan="2">
+                        <input type="text" id="contact-number" name="contact-number" placeholder="Please insert your contact number in this box here .... " style="padding: 10px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="contact-ideas" style="text-align: left;">Your Enquiries</label>
+                    </td>
+                    <td colspan="2">
+                        <textarea id="contact-ideas" name="contact-ideas" placeholder="Please insert your enquiries here in this box ...." style="padding: 10px;"></textarea>
+                        <div id="file-upload" class="file-upload-container">
+                            <p>Drag & drop image or video files here or click to select files</p>
+                            <div id="file-list" class="file-list"></div>
+                            </div>
+                        <input type="file" id="file-input" name="file-input" style="display: none;" multiple accept="image/*, video/mp4, video/webm, video/ogg" />
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit"><input type="reset" value="Cancel">
+        </form>
 
     </main>
 
     <footer>
         <nav>
             <ul>
-                <li><a href="wa.me/60199830889"><img src="pictures/pngimg.com - whatsapp_PNG95167.png" alt="WhatsApp"></a></li>
-                <li><a href="https://www.instagram.com/zerotinfinity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="pictures/pngimg.com - instagram_PNG9.png" alt="Instagram"></a></li>
-                <li><a href="#"><img src="pictures/pngimg.com - tiktok_PNG26.png" alt="Tik Tok"></a></li>
-                <li><a href="#"><img src="pictures/pngimg.com - youtube_PNG102352.png" alt="YouTube"></a></li>
+                <li><a href="https://wa.me/60199830889" target="_blank"><img src="pictures/pngimg.com - whatsapp_PNG95167.png" alt="WhatsApp"></a></li>
+                <li><a href="https://www.instagram.com/zerotinfinity" target="_blank"><img src="pictures/pngimg.com - instagram_PNG9.png" alt="Instagram"></a></li>
+                <li><a href="#" target="_blank"><img src="pictures/pngimg.com - tiktok_PNG26.png" alt="Tik Tok"></a></li>
+                <li><a href="#" target="_blank"><img src="pictures/pngimg.com - youtube_PNG102352.png" alt="YouTube"></a></li>
             </ul>
         </nav>
         <h3>© 2025 ZeroToInfinity. All rights reserved</h3>
